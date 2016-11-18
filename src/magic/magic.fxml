@@ -10,7 +10,7 @@
 
 <AnchorPane fx:id="apMainPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.102-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="magic.Controller">
    <children>
-      <MenuBar layoutX="175.0" layoutY="14.0" prefHeight="29.0" prefWidth="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <MenuBar layoutX="175.0" layoutY="14.0" prefHeight="29.0" prefWidth="100.0" styleClass="myMenu" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>

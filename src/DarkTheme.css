@@ -37,7 +37,7 @@
 .root{
     -fx-font-size: 10pt;
     -fx-font-family: "Courier New";
-    -fx-base: rgb(132, 145, 47);
+    -fx-base: rgb(132, 145, 0);
     -fx-background: rgb(225, 228, 203);
 }
 
@@ -54,3 +54,11 @@
     -fx-border-width: 1.5;
     -fx-border-insets: -5;
 }
+
+.myMenu{
+    -fx-font-size: 9pt;
+    -fx-font-family: "Courier New";
+    -fx-base: rgb(132, 145, 123);
+    -fx-background: rgb(225, 228, 203);
+}
+
