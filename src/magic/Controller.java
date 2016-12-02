@@ -2,14 +2,19 @@ package magic;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 public class Controller {
     public AnchorPane apMainPane;
     public ListView<Person> lvLlistaCartes;
+    public MenuItem miGoThread;
+    public ProgressBar pbProgress;
 
     public void initialize(){
 
@@ -43,5 +48,20 @@ public class Controller {
                 System.out.println("ListView Selection Changed (selected: " + newValue.getName() + ")");
             }
         );
+    }
+
+    public void miGoThreadOnAction(ActionEvent actionEvent) {
+        Tasca2Pla tasca = new Tasca2Pla();
+        tasca.setOnSucceeded(e -> {
+            pbProgress.progressProperty().unbind();
+            pbProgress.setProgress(0.0F);
+            System.out.println(tasca.getValue());
+        });
+
+        pbProgress.progressProperty().bind(tasca.progressProperty());
+
+        Thread th = new Thread(tasca);
+        th.setDaemon(true);
+        th.start();
     }
 }
