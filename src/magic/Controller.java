@@ -3,6 +3,7 @@ package magic;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
@@ -11,10 +12,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 public class Controller {
-    public AnchorPane apMainPane;
-    public ListView<Person> lvLlistaCartes;
-    public MenuItem miGoThread;
-    public ProgressBar pbProgress;
+    @FXML
+    AnchorPane apMainPane;
+    @FXML
+    ListView<Person> lvLlistaCartes;
+    @FXML
+    MenuItem miGoThread;
+    @FXML
+    ProgressBar pbProgress;
 
     public void initialize(){
 
