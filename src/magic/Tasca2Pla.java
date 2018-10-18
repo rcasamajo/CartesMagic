@@ -11,9 +11,7 @@ public class Tasca2Pla extends Task<String>
         try {
             Thread.sleep(5000);
         } catch (InterruptedException interrupted) {
-            if (isCancelled()) {
-                updateMessage("Cancelled");
-            }
+            return "Cancelled";
         }
         return "Done";
     }

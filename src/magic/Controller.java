@@ -13,16 +13,19 @@ import javafx.scene.layout.AnchorPane;
 
 public class Controller {
     @FXML
-    AnchorPane apMainPane;
+    private AnchorPane apMainPane;
     @FXML
-    ListView<Person> lvLlistaCartes;
+    private ListView<Person> lvLlistaCartes;
     @FXML
-    MenuItem miGoThread;
-    @FXML
-    ProgressBar pbProgress;
+    private MenuItem miGoThread, miCancelThread;
 
-    // Classe per la cellFactory de la ListView
-    static class myListCell extends ListCell<Person>{
+    @FXML
+    private ProgressBar pbProgress;
+
+    private Thread th;
+
+    // Classe per usar a la cellFactory de la ListView
+    public class myListCell extends ListCell<Person>{
         @Override
         public void updateItem(Person item, boolean empty) {
             super.updateItem(item, empty);
@@ -70,6 +73,8 @@ public class Controller {
                 System.out.println("ListView Selection Changed (selected: " + newValue.getName() + ")");
             }
         );
+
+        th = null;
     }
 
     public void miGoThreadOnAction(ActionEvent actionEvent) {
@@ -82,8 +87,15 @@ public class Controller {
 
         pbProgress.progressProperty().bind(tasca.progressProperty());
 
-        Thread th = new Thread(tasca);
-        th.setDaemon(true);
-        th.start();
+        this.th = new Thread(tasca);
+        this.th.setDaemon(true);
+        this.th.start();
+    }
+
+    public void miCancelThreadOnAction(ActionEvent actionEvent) {
+        if (this.th != null) {
+            this.th.interrupt();
+            this.th = null;
+        }
     }
 }
