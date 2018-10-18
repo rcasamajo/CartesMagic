@@ -21,10 +21,27 @@ public class Controller {
     @FXML
     ProgressBar pbProgress;
 
+    // Classe per la cellFactory de la ListView
+    static class myListCell extends ListCell<Person>{
+        @Override
+        public void updateItem(Person item, boolean empty) {
+            super.updateItem(item, empty);
+            if (empty) {
+                setGraphic(null);
+            } else {
+                setGraphic(new ImageView(item.getImg()));
+                setText(item.getName());
+            }
+        }
+    }
+
     public void initialize(){
 
         // Personalitzem la CellFactory
-        lvLlistaCartes.setCellFactory((list) -> {
+        lvLlistaCartes.setCellFactory((list) -> { return new myListCell(); });
+
+        // El mateix es podria fer amb una classe anònima en lloc de crear myListCell
+        /*lvLlistaCartes.setCellFactory((list) -> {
             return new ListCell<Person>() {
                 @Override
                 public void updateItem(Person item, boolean empty) {
@@ -37,7 +54,7 @@ public class Controller {
                     }
                 }
             };
-        });
+        })*/;
 
         // Afegir llista observable d'items
         ObservableList<Person> persons = FXCollections.observableArrayList(
