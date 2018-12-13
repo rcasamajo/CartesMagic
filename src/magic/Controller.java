@@ -9,6 +9,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 public class Controller {
@@ -98,4 +99,16 @@ public class Controller {
             this.th = null;
         }
     }
+
+    /**
+     * Event que gestiona un doble click sobre el ListView
+     * @param mouseEvent
+     */
+    public void lvMouseClicked(MouseEvent mouseEvent) {
+        if (mouseEvent.getClickCount() == 2) {
+            System.out.println(lvLlistaCartes.getSelectionModel().getSelectedItem());
+        }
+    }
+
+
 }

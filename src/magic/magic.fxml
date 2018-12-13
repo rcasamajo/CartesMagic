@@ -33,7 +33,7 @@
       </MenuBar>
       <HBox layoutY="28.0" prefHeight="377.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="29.0">
          <children>
-            <ListView fx:id="lvLlistaCartes" prefHeight="371.0" prefWidth="316.0" styleClass="left-container" />
+            <ListView fx:id="lvLlistaCartes" onMouseClicked="#lvMouseClicked" prefHeight="371.0" prefWidth="316.0" styleClass="left-container" />
             <ImageView fitHeight="377.0" fitWidth="417.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </HBox>
